@@ -2,9 +2,9 @@ import mysql.connector
 from mysql.connector import errorcode
 from database_connection import db, cursor
 import database_functions as dbf
-from database_team import yearvalues_db, leaguestandings_db, playoffresults_db
-from database_roster import yearlyrosters_db, rostercount_db
-from database_player import rosterstats_db
+from yearly_team_records import yearvalues_db, leaguestandings_db, playoffresults_db
+from yearly_roster import yearlyrosters_db, rostercount_db
+from yearly_player_stats import rosterstats_db
  
 DB_NAME = 'leafsroster'
 

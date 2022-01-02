@@ -3,7 +3,7 @@ from database_connection import db, cursor
 from requests_html import HTMLSession
 import requests
 from pprint import pprint
-from database_roster import playerslinks_db
+from yearly_roster import playerslinks_db
 
 session = HTMLSession()
 
@@ -12,7 +12,7 @@ rosterstats_l = []
 yearlystats_l = []
 playerstats = []
 
-# pprint(str(playerslinks_db[0][24])[20:-3])
+# pprint(str(playerslinks_db[0][24])[20:-3])    
     # player_stats = session.get(f"https://www.nhl.com/player/curtis-mcelhinney-8470147")
     # player_stats.html.render(sleep=1, keep_page=True, scrolldown=8, timeout=60)    
     # player_yearly_stat = player_stats.html.find(".player-jumbotron-vitals__attributes")

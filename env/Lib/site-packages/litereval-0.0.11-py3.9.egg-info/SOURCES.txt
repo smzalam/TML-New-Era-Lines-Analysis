@@ -1,0 +1,13 @@
+LICENSE
+MANIFEST.in
+README.md
+setup.cfg
+setup.py
+versioneer.py
+litereval/__init__.py
+litereval/__main__.py
+litereval/_version.py
+litereval.egg-info/PKG-INFO
+litereval.egg-info/SOURCES.txt
+litereval.egg-info/dependency_links.txt
+litereval.egg-info/top_level.txt

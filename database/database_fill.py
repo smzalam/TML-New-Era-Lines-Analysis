@@ -136,4 +136,4 @@ for i in range(len(years)):
                 dbf.create_tables(DB_NAME, TABLES)
                 for z in range(len(rosterstats_db[i][j])):
                     dbf.add_onto_playerroster(years[i], j, yearlyrosters_db[i][k][f"{j}"], rosterstats_db[i][j][z]["games_played"], rosterstats_db[i][j][z]["goals"], rosterstats_db[i][j][z]["assists"], rosterstats_db[i][j][z]["points"], rosterstats_db[i][j][z]["plus_minus"], rosterstats_db[i][j][z]["penalty_mins"], rosterstats_db[i][j][z]["pp_goals"], rosterstats_db[i][j][z]["pp_points"], rosterstats_db[i][j][z]["sh_goals"], rosterstats_db[i][j][z]["sh_points"], rosterstats_db[i][j][z]["gw_goals"],rosterstats_db[i][j][z]["ot_goals"], j+1)
-                
+            

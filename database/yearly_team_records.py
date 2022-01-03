@@ -120,3 +120,5 @@ playoffresults_db = playoffresults_l
     # dbf.add_onto_mainroster(yearvalues[i]["year"], yearvalues[i]["s_w"], yearvalues[i]['s_l'], yearvalues[i]["s_ot"],yearvalues[i]["div"], yearvalues[i]["div_rank"], leaguestandings_l[i]["league_rank"], playoffresults_l[i]["playoff_rnd"], playoffresults_l[i]["playoff_w"], playoffresults_l[i]["playoff_l"])
 
 # cursor.execute("DELETE * FROM db")
+
+session.close()

@@ -20,17 +20,20 @@ playerstats = []
 
 for year in range(len(playerslinks_db)):
     for player in range(len(playerslinks_db[year])):
+        
+        session = HTMLSession()
+        
         print(year, player)
         
         player_role = session.get(f"https://www.nhl.com/player/curtis-mcelhinney-8470147")
-        player_role.html.render(sleep=1, keep_page=True, scrolldown=8, timeout=60)    
+        player_role.html.render(sleep=1, keep_page=True, scrolldown=8, timeout=120)    
         player_yearly_role = player_role.html.find(".player-jumbotron-vitals__attributes")
         role = player_yearly_role[0].text[0]
         
         if (str(playerslinks_db[year][player])[20:-3] == ""):
             continue
         player_stats = session.get(f"https://www.nhl.com/{str(playerslinks_db[year][player])[20:-3]}")
-        player_stats.html.render(sleep=1, keep_page=True, scrolldown=8, timeout=60)    
+        player_stats.html.render(sleep=1, keep_page=True, scrolldown=8, timeout=120)    
         player_yearly_stat = player_stats.html.find("#careerTable")
         player_yearly_stats = player_yearly_stat[0].text.split("\n")
         player_yearly_stats_l = []
@@ -78,9 +81,14 @@ for year in range(len(playerslinks_db)):
 
         yearlystats_l.append(player_stats)
         pprint(f"{year}_{player} done!")
+        player_role.close()
+        player_stats.close()
+        session.close()
+        
         
     rosterstats_l.append(yearlystats_l)
     pprint(f"{year} done!")
+    
     
 pprint(rosterstats_l[0][1])
 rosterstats_db = rosterstats_l

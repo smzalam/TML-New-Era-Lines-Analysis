@@ -76,3 +76,5 @@ playerslinks_db = playerslinks_l
 #                 dbf.add_onto_yearlyroster(yearlyrosters_l[i][k][f"{j}"], yearlyrosters_l[i][k][f"{j}_role"], yearlyrosters_l[i][k][f"{j}_pos"])
 #             except KeyError:
 #                 continue
+
+session.close()

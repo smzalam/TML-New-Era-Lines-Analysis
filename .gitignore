@@ -2,3 +2,4 @@ polygonapi.py
 test.py
 main.ipynb
 confidential.py
+__pycache__

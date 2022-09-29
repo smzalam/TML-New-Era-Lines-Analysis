@@ -1,0 +1,24 @@
+version: "3"
+services:
+  api:
+    build: .
+    depends_on:
+      - postgres
+    ports:
+      # - <port on localhost>:<port on container>
+      - 8000:8000
+
+    volumes:
+      - ./:/usr/src/app
+
+  postgres:
+    image: postgres
+    environment:
+      - POSTGRES_PASSWORD=dbbotsws$cali
+      - POSTGRES_DB=tmldb
+
+    volumes:
+      - postgres-db:/var/lib/postgresql/data
+
+volumes:
+  postgres-db:

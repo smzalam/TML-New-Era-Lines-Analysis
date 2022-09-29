@@ -1,8 +1,9 @@
-import mysql.connector
-from database_fill.database_connection import db, cursor
+# import mysql.connector
+# from database_fill.database_connection import db, cursor
 from requests_html import HTMLSession
 from pprint import pprint
-import database_fill.database_functions as dbf
+import json
+# import database_fill.database_functions as dbf
 
 session = HTMLSession()
 
@@ -52,13 +53,36 @@ for year in range(len(years)):
         }
         playerstats.append(p_dict)
 
-    table = f"CREATE TABLE `{years[year]}_playerstats` (`name` varchar(250) NOT NULL, `shoots` varchar(250) NOT NULL, `position` varchar(250) NOT NULL, `games_played` int(5) NOT NULL, `goals` int(5) NOT NULL, `assists` int(5) NOT NULL, `points` int(5) NOT NULL, `plus_minus` int(5) NOT NULL, `penalty_mins` int(5) NOT NULL, `points_per_game` decimal(8, 3) NOT NULL, `even_strength_goals` int(5) NOT NULL, `powerplay_goals` int(5) NOT NULL, `powerplay_points` int(5) NOT NULL, `shorthanded_goals` int(5) NOT NULL, `shorthanded_points` int(5) NOT NULL, `game_winning_goals` int(5) NOT NULL, `overtime_goals` int(5) NOT NULL, `shots` int(5) NOT NULL, `shot_percentage` decimal(8, 3) NOT NULL, `time_on_ice_per_game` varchar(250) NOT NULL, `faceoff_win_percentage` decimal(4,1) NOT NULL, `roster_id` int(5) NOT NULL, PRIMARY KEY (`name`)) ENGINE=InnoDB"
-    
-    dbf.create_tables(DB_NAME, table)
-    
-    p_id = int(years[year]) - 2015
-    
-    for i in range(len(playerstats)):
-        dbf.add_onto_playerroster(years[year], playerstats[i]['name'], playerstats[i]['shoots'], playerstats[i]['position'], playerstats[i]['games_played'], playerstats[i]['goals'], playerstats[i]['assists'], playerstats[i]['points'], playerstats[i]['plus_minus'], playerstats[i]['penalty_mins'], playerstats[i]['points_per_game'], playerstats[i]['evs_goals'], playerstats[i]['pp_goals'], playerstats[i]['pp_points'], playerstats[i]['sh_goals'], playerstats[i]['sh_points'], playerstats[i]['gw_goals'], playerstats[i]['ot_goals'], playerstats[i]['shots'], playerstats[i]['shot_percentage'], playerstats[i]['toi_per_game'], playerstats[i]['faceoff_win_percentage'], p_id)
-        
-        pprint(f"{years[year]}_{i} done!")
+    with open(f"{season}_playerstats.json", "w") as outfile:
+        json.dump(playerstats, outfile, indent=4)
+
+
+for year in range(len(years)):
+    goaliestats = []
+    if years[year] == "2022":
+        continue
+    season = f"{years[year]}{years[year+1]}"
+    player_page = session.get(f"https://www.nhl.com/stats/goalies?reportType=season&seasonFrom={season}&seasonTo={season}&gameType=2&playerPlayedFor=franchise.5&filter=gamesPlayed,gte,1&sort=wins,savePct&page=0&pageSize=50")
+    player_page.html.render(sleep=1, keep_page=True, scrolldown=8, timeout=60)    
+    player_stats = player_page.html.find(".rt-tr-group")
+    for j in range(len(player_stats)):
+        one_player = player_stats[j].text.split("\n")
+        p_dict = {
+                "name": one_player[1],
+                "position": "G",
+                "games_played": one_player[5],
+                "games_saved": one_player[6],
+                "wins": one_player[7],
+                "losses": one_player[8],
+                "ot_losses": one_player[10],
+                "shots_against": one_player[11],
+                "goals_against": one_player[13],
+                "goals_against_average": one_player[15],
+                "saves": one_player[12],
+                "saves_percentage": one_player[14],
+                "shutouts": one_player[17]
+            }
+        goaliestats.append(p_dict)
+
+    with open(f"{season}_goaliestats.json", "w") as outfile:
+        json.dump(goaliestats, outfile, indent=4)

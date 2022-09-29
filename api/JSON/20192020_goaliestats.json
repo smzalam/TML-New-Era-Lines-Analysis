@@ -1,0 +1,62 @@
+[
+    {
+        "name": "Frederik Andersen",
+        "position": "G",
+        "games_played": 52,
+        "games_saved": 52,
+        "wins": 29,
+        "losses": 13,
+        "ot_losses": 7,
+        "shots_against": 1577,
+        "goals_against": 143,
+        "goals_against_average": 2.85,
+        "saves": 1434,
+        "saves_percentage": 0.909,
+        "shutouts": 3
+    },
+    {
+        "name": "Michael Hutchinson",
+        "position": "G",
+        "games_played": 15,
+        "games_saved": 11,
+        "wins": 4,
+        "losses": 9,
+        "ot_losses": 1,
+        "shots_against": 421,
+        "goals_against": 48,
+        "goals_against_average": 3.66,
+        "saves": 373,
+        "saves_percentage": 0.886,
+        "shutouts": 1
+    },
+    {
+        "name": "Jack Campbell",
+        "position": "G",
+        "games_played": 6,
+        "games_saved": 6,
+        "wins": 3,
+        "losses": 2,
+        "ot_losses": 1,
+        "shots_against": 189,
+        "goals_against": 16,
+        "goals_against_average": 2.63,
+        "saves": 173,
+        "saves_percentage": 0.915,
+        "shutouts": 0
+    },
+    {
+        "name": "Kasimir Kaskisuo",
+        "position": "G",
+        "games_played": 1,
+        "games_saved": 1,
+        "wins": 0,
+        "losses": 1,
+        "ot_losses": 0,
+        "shots_against": 38,
+        "goals_against": 6,
+        "goals_against_average": 6.00,
+        "saves": 32,
+        "saves_percentage": 0.842,
+        "shutouts": 0
+    }
+]

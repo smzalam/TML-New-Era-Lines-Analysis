@@ -1,9 +1,9 @@
-import mysql.connector
-from database_fill.database_connection import db, cursor
+# import mysql.connector
+# from database_fill.database_connection import db, cursor
 from requests_html import HTMLSession
-import requests
+import requests, json
 from pprint import pprint
-import database_fill.database_functions as dbf
+# import database_fill.database_functions as dbf
 
 #constants 
 TABLES = {}
@@ -33,7 +33,7 @@ for i in range(len(years)):
     else: 
         atlanticstandings = standings[1].text.split("\n")
     atlanticstandings_l.append(atlanticstandings)
-    print(f"{i} done")
+    # print(f"{i} done")
 
 # populate data for each year - DIVISION
 for year in range(len(years)):
@@ -51,8 +51,9 @@ for year in range(len(years)):
                     "pts":int(f"{atlanticstandings[i+5]}") 
                 }
                 yearvalues.append(year)
-                print(f"{year} done!")
-            
+                # print(f"{year} done!")
+
+print('YearValues: \n')     
 pprint(yearvalues)
 
 # ========================================LEAGUE===================================================================
@@ -67,9 +68,9 @@ for i in range(len(years)):
             if (standings_l[i][k:k+7] == "Toronto"):
                 league_standings = {"league_rank":int(f"{standings_l[i-1]}")}
                 leaguestandings_l.append(league_standings)
-                print(f"{league_standings} done!")
+                # print(f"{league_standings} done!")
             
-
+print('LeagueStandings \n')
 print(leaguestandings_l)
 
 # ========================================PLAYOFFS=================================================================
@@ -95,17 +96,20 @@ for i in range(len(years)):
                     playoffs['playoff_w'] = int(f"{results_l[i][k+2][0]}")
                     playoffs['playoff_l'] = int(f"{results_l[i][k+2][4]}")
                 playoffresults_l.append(playoffs)
-                pprint(f"{playoffs} done!")
+                # pprint(f"{playoffs} done!")
     
+print('PlayoffResults \n')
 pprint(playoffresults_l)
 
 # ========================================DATABASE FILL=============================================================
-  
-table = "CREATE TABLE `tml_rosters` (`year` int(4) NOT NULL, `season_wins` int(5) NOT NULL, `season_losses` int(5) NOT NULL, `season_overtime` int(5) NOT NULL, `division` varchar(250) NOT NULL, `division_ranking` int(1) NOT NULL, `league_ranking` int(1) NOT NULL, `playoff_round` varchar(250) NOT NULL, `playoff_wins` int(1) NOT NULL, `playoff_losses` int(1) NOT NULL, `roster_id` int(11) NOT NULL AUTO_INCREMENT, `team_id` varchar(250) NOT NULL, PRIMARY KEY (`roster_id`)) ENGINE=InnoDB"
 
-dbf.create_tables(DB_NAME, table)
+with open('season_results.json', 'w') as outfile:
+    json.dump(yearvalues, outfile, indent=4)
 
-for i in range(len(years)):
-    dbf.add_onto_mainroster(yearvalues[i]["year"], yearvalues[i]["s_w"], yearvalues[i]['s_l'], yearvalues[i]["s_ot"], yearvalues[i]["div"], yearvalues[i]["div_rank"], leaguestandings_l[i]["league_rank"], playoffresults_l[i]["playoff_rnd"], playoffresults_l[i]["playoff_w"], playoffresults_l[i]["playoff_l"], "TML")
+with open('leaguerank.json', 'w') as outfile:
+    json.dump(leaguestandings_l, outfile, indent=4)
+
+with open('playoff_results.json', 'w') as outfile:
+    json.dump(playoffresults_l, outfile, indent=4)
 
 session.close()

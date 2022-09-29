@@ -1,0 +1,47 @@
+[
+    {
+        "name": "Frederik Andersen",
+        "position": "G",
+        "games_played": 66,
+        "games_saved": 66,
+        "wins": 38,
+        "losses": 21,
+        "ot_losses": 5,
+        "shots_against": 2211,
+        "goals_against": 182,
+        "goals_against_average": 2.81,
+        "saves": 2029,
+        "saves_percentage": 0.918,
+        "shutouts": 5
+    },
+    {
+        "name": "Curtis McElhinney",
+        "position": "G",
+        "games_played": 18,
+        "games_saved": 15,
+        "wins": 11,
+        "losses": 5,
+        "ot_losses": 1,
+        "shots_against": 528,
+        "goals_against": 35,
+        "goals_against_average": 2.14,
+        "saves": 493,
+        "saves_percentage": 0.934,
+        "shutouts": 3
+    },
+    {
+        "name": "Calvin Pickard",
+        "position": "G",
+        "games_played": 1,
+        "games_saved": 1,
+        "wins": 0,
+        "losses": 0,
+        "ot_losses": 1,
+        "shots_against": 28,
+        "goals_against": 4,
+        "goals_against_average": 3.83,
+        "saves": 24,
+        "saves_percentage": 0.857,
+        "shutouts": 0
+    }
+]

@@ -1,0 +1,56 @@
+[
+    {
+        "year": 2016,
+        "s_w": 40,
+        "s_l": 27,
+        "s_ot": 15,
+        "div": "AtlanticA",
+        "div_rank": 4,
+        "pts": 95
+    },
+    {
+        "year": 2017,
+        "s_w": 49,
+        "s_l": 26,
+        "s_ot": 7,
+        "div": "AtlanticA",
+        "div_rank": 3,
+        "pts": 105
+    },
+    {
+        "year": 2018,
+        "s_w": 46,
+        "s_l": 28,
+        "s_ot": 8,
+        "div": "AtlanticA",
+        "div_rank": 3,
+        "pts": 100
+    },
+    {
+        "year": 2019,
+        "s_w": 36,
+        "s_l": 25,
+        "s_ot": 9,
+        "div": "AtlanticA",
+        "div_rank": 3,
+        "pts": 81
+    },
+    {
+        "year": 2020,
+        "s_w": 35,
+        "s_l": 14,
+        "s_ot": 7,
+        "div": "Scotia NorthNTH",
+        "div_rank": 1,
+        "pts": 77
+    },
+    {
+        "year": 2021,
+        "s_w": 54,
+        "s_l": 21,
+        "s_ot": 7,
+        "div": "AtlanticA",
+        "div_rank": 2,
+        "pts": 115
+    }
+]

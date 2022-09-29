@@ -1,42 +1,28 @@
-"""
-1. get one player's stats (for a particular year or all years in record)
-2. get two player's stats (for a particular year or all years in record)
-3. get year roster (by year)
-4. get team stats for year (for a particular year or all years in record) 
-5. team stats vs another team
-"""
+from fastapi import FastAPI
+from fastapi.middleware.cors import CORSMiddleware
+from .database import engine
+from . import models
+from .routers import posts, users, auth
 
-from fastapi import FastAPI, Response, status
-from typing import Optional
-from fastapi.params import Body
-from pydantic import BaseModel
+models.Base.metadata.create_all(bind=engine)
 
 app = FastAPI()
 
-@app.get("/tml")
-async def root():
-    return {"message": "Welcome to the Toronto Maple Leafs Stats API."}
+origins = ["*"]
 
-@app.get("/tml/players/{name}")
-async def root():
-    return {"message": "Hello World"}
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=origins,
+    allow_credentials=True,
+    allow_methods=["*"],
+    allow_headers=["*"],
+)
 
-@app.get("/tml/players/{name1}&{name2}")
-async def root():
-    return {"message": "Hello World"}
+app.include_router(posts.router)
+app.include_router(users.router)
+app.include_router(auth.router)
 
-@app.get("tml/rosters/{year}")
-async def root():
-    return {"message": "Hello World"}
 
-@app.get("tml/stats/{year}")
-async def root():
-    return {"message": "Hello World"}
-
-@app.get("tml/records/{team}&{year}")
+@app.get("/")
 async def root():
     return {"message": "Hello World"}
-
-# @app.get("players/")
-# async def root():
-#     return {"message": "Hello World"}

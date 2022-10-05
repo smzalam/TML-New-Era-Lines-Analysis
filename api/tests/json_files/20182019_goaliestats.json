@@ -1,0 +1,47 @@
+[
+    {
+        "name": "Frederik Andersen",
+        "position": "G",
+        "games_played": 60,
+        "games_saved": 60,
+        "wins": 36,
+        "losses": 16,
+        "ot_losses": 7,
+        "shots_against": 1958,
+        "goals_against": 162,
+        "goals_against_average": 2.77,
+        "saves": 1796,
+        "saves_percentage": 0.917,
+        "shutouts": 1
+    },
+    {
+        "name": "Garret Sparks",
+        "position": "G",
+        "games_played": 20,
+        "games_saved": 17,
+        "wins": 8,
+        "losses": 9,
+        "ot_losses": 1,
+        "shots_against": 592,
+        "goals_against": 58,
+        "goals_against_average": 3.15,
+        "saves": 534,
+        "saves_percentage": 0.902,
+        "shutouts": 1
+    },
+    {
+        "name": "Michael Hutchinson",
+        "position": "G",
+        "games_played": 5,
+        "games_saved": 5,
+        "wins": 2,
+        "losses": 3,
+        "ot_losses": 0,
+        "shots_against": 152,
+        "goals_against": 13,
+        "goals_against_average": 2.64,
+        "saves": 139,
+        "saves_percentage": 0.914,
+        "shutouts": 1
+    }
+]

@@ -1,0 +1,62 @@
+[
+    {
+        "name": "Frederik Andersen",
+        "position": "G",
+        "games_played": 66,
+        "games_saved": 66,
+        "wins": 33,
+        "losses": 16,
+        "ot_losses": 14,
+        "shots_against": 2052,
+        "goals_against": 169,
+        "goals_against_average": 2.67,
+        "saves": 1883,
+        "saves_percentage": 0.918,
+        "shutouts": 4
+    },
+    {
+        "name": "Curtis McElhinney",
+        "position": "G",
+        "games_played": 14,
+        "games_saved": 10,
+        "wins": 6,
+        "losses": 7,
+        "ot_losses": 0,
+        "shots_against": 418,
+        "goals_against": 36,
+        "goals_against_average": 2.85,
+        "saves": 382,
+        "saves_percentage": 0.914,
+        "shutouts": 1
+    },
+    {
+        "name": "Antoine Bibeau",
+        "position": "G",
+        "games_played": 2,
+        "games_saved": 2,
+        "wins": 1,
+        "losses": 1,
+        "ot_losses": 0,
+        "shots_against": 55,
+        "goals_against": 4,
+        "goals_against_average": 1.99,
+        "saves": 51,
+        "saves_percentage": 0.927,
+        "shutouts": 0
+    },
+    {
+        "name": "Jhonas Enroth",
+        "position": "G",
+        "games_played": 6,
+        "games_saved": 4,
+        "wins": 0,
+        "losses": 3,
+        "ot_losses": 1,
+        "shots_against": 141,
+        "goals_against": 18,
+        "goals_against_average": 3.94,
+        "saves": 123,
+        "saves_percentage": 0.872,
+        "shutouts": 0
+    }
+]
